@@ -8,7 +8,15 @@
   },
   "hero": {
     "role": "Full-stack Developer · Shopify",
-    "tagline": "Xây dựng Shopify app phục vụ 5,500+ merchants.",
+    "tagline": "Đóng góp vào các Shopify app phục vụ 5,500+ merchants tại BSS Commerce.",
+    "stat_merchants_value": "5,500+",
+    "stat_merchants_label": "Merchants",
+    "stat_reviews_value": "1,550+",
+    "stat_reviews_label": "Reviews ★",
+    "stat_apps_value": "2",
+    "stat_apps_label": "Live Apps",
+    "stat_exp_value": "~2 năm",
+    "stat_exp_label": "Kinh nghiệm",
     "cta_work": "Xem dự án",
     "cta_contact": "Liên hệ",
     "scroll": "Cuộn xuống"

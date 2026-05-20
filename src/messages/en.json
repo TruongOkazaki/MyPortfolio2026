@@ -8,7 +8,15 @@
   },
   "hero": {
     "role": "Full-stack Developer · Shopify",
-    "tagline": "Building Shopify apps used by 5,500+ merchants.",
+    "tagline": "Contributing to Shopify apps serving 5,500+ merchants at BSS Commerce.",
+    "stat_merchants_value": "5,500+",
+    "stat_merchants_label": "Merchants",
+    "stat_reviews_value": "1,550+",
+    "stat_reviews_label": "Reviews ★",
+    "stat_apps_value": "2",
+    "stat_apps_label": "Live Apps",
+    "stat_exp_value": "~2 yrs",
+    "stat_exp_label": "Experience",
     "cta_work": "View Work",
     "cta_contact": "Contact",
     "scroll": "Scroll"
