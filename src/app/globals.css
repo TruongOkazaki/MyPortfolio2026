@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --cream: #f5f2ed;
+  --ink: #1a1a1a;
+  --ink-light: #444444;
+  --muted: #888888;
+  --border: #e0ddd8;
+  --border-dark: #c8c4bc;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .text-muted {
+    color: var(--muted);
+  }
+  .border-cream {
+    border-color: var(--border);
+  }
+}
+
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.geo-spin {
+  animation: slow-spin 30s linear infinite;
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--ink);
+  transition: width 0.2s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
