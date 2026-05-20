@@ -3,12 +3,13 @@ import { motion, type Variants } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
 const containerVariants: Variants = {
+  initial: {},
   animate: { transition: { staggerChildren: 0.1 } },
 }
 
 const itemVariants: Variants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 }
 
 export default function Hero() {
@@ -16,7 +17,7 @@ export default function Hero() {
 
   return (
     <section className="min-h-[100dvh] flex flex-col justify-between pt-14 pb-8 px-6 md:px-10 max-w-content mx-auto relative overflow-hidden">
-      {/* Decorative circles — hidden on mobile */}
+      {/* Decorative circles — hidden on small screens */}
       <div className="absolute top-20 right-6 sm:right-16 hidden sm:flex flex-col items-center gap-4 pointer-events-none select-none">
         <motion.div
           className="w-24 h-24 md:w-36 md:h-36 rounded-full border border-border"
@@ -59,10 +60,7 @@ export default function Hero() {
           <span className="text-muted">Trưởng</span>
         </motion.h1>
 
-        <motion.div
-          variants={itemVariants}
-          className="w-10 h-0.5 bg-ink mt-5 mb-4"
-        />
+        <motion.div variants={itemVariants} className="w-10 h-0.5 bg-ink mt-5 mb-4" />
 
         <motion.p
           variants={itemVariants}
