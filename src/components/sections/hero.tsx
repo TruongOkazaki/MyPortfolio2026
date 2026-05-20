@@ -70,18 +70,20 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={itemVariants} className="flex gap-3 mt-8">
-          <button
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          <a
+            href="#projects"
+            onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}
             className="bg-ink text-cream text-[10px] tracking-[2px] uppercase px-5 py-3 font-sans hover:bg-ink-light transition-colors"
           >
             {t('cta_work')}
-          </button>
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
             className="border border-border text-ink text-[10px] tracking-[2px] uppercase px-5 py-3 font-sans hover:border-border-dark transition-colors"
           >
             {t('cta_contact')}
-          </button>
+          </a>
         </motion.div>
       </motion.div>
 

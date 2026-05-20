@@ -9,7 +9,7 @@ export default function LangToggle() {
 
   function toggle() {
     const next = locale === 'vi' ? 'en' : 'vi'
-    const newPath = pathname.replace(`/${locale}`, `/${next}`)
+    const newPath = '/' + next + pathname.slice(`/${locale}`.length)
     router.push(newPath)
   }
 

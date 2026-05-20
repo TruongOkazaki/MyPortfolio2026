@@ -6,9 +6,10 @@ type Props = {
   project: Project
   desc: string
   liveLabel: string
+  statSuffix: string  // pre-translated by parent via t(project.statSuffixKey)
 }
 
-export default function ProjectCard({ project, desc, liveLabel }: Props) {
+export default function ProjectCard({ project, desc, liveLabel, statSuffix }: Props) {
   return (
     <motion.article
       className="border border-[#e0ddd8] p-6 flex flex-col gap-4 cursor-default"
@@ -29,7 +30,7 @@ export default function ProjectCard({ project, desc, liveLabel }: Props) {
       <div className="flex items-end justify-between mt-auto">
         <span className="text-[11px] font-sans text-muted">
           <span className="text-ink font-bold">{project.statValue}</span>{' '}
-          {project.statSuffix}
+          {statSuffix}
         </span>
         <a
           href={project.liveUrl}

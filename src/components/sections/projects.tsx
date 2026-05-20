@@ -22,6 +22,7 @@ export default function Projects() {
             project={project}
             desc={t(project.descKey as 'optis_desc' | 'swatch_desc')}
             liveLabel={t('live')}
+            statSuffix={t(project.statSuffixKey)}
           />
         ))}
       </div>

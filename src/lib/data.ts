@@ -100,7 +100,7 @@ export type Project = {
   name: string
   techStack: string
   statValue: string
-  statSuffix: string
+  statSuffixKey: 'merchants' | 'rating'
   descKey: string
   liveUrl: string
 }
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     name: 'OPTIS Product Options',
     techStack: 'React.js · Node.js · Koa.js · GraphQL · MySQL · Sequelize',
     statValue: '5,000+',
-    statSuffix: 'merchants',
+    statSuffixKey: 'merchants' as const,
     descKey: 'optis_desc',
     liveUrl: 'https://apps.shopify.com/product-options-by-bss',
   },
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     name: 'OP Color Swatch',
     techStack: 'Remix · Lit · TypeScript · NestJS · MySQL · TypeORM',
     statValue: '5.0 ★',
-    statSuffix: 'rating',
+    statSuffixKey: 'rating' as const,
     descKey: 'swatch_desc',
     liveUrl: 'https://apps.shopify.com/optis-color-swatch-variants',
   },
