@@ -12,43 +12,22 @@ const itemVariants: Variants = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 }
 
-type StatBoxProps = {
-  value: string
-  label: string
-  delay: number
-}
-
-function StatBox({ value, label, delay }: StatBoxProps) {
-  return (
-    <motion.div
-      className="border border-border p-4 md:p-5 flex flex-col gap-1"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.5, ease: 'easeOut' }}
-    >
-      <span className="font-serif font-bold text-ink text-xl md:text-2xl leading-none tracking-tight">
-        {value}
-      </span>
-      <span className="text-[9px] tracking-[2px] uppercase text-muted font-sans">{label}</span>
-    </motion.div>
-  )
-}
-
 export default function Hero() {
   const t = useTranslations('hero')
 
   return (
     <section className="min-h-[100dvh] flex flex-col justify-between pt-14 pb-8 px-6 md:px-10 max-w-content mx-auto">
 
-      {/* Main content: text left, stats right */}
-      <motion.div
-        className="flex-1 flex flex-col md:grid md:grid-cols-[1fr_260px] md:gap-12 lg:gap-20 items-center mt-8 md:mt-0"
-        variants={containerVariants}
-        initial="initial"
-        animate="animate"
-      >
+      {/* Main content */}
+      <div className="flex-1 flex flex-col md:grid md:grid-cols-[1fr_320px] md:gap-8 items-center mt-8 md:mt-0">
+
         {/* Left: identity */}
-        <div className="flex flex-col">
+        <motion.div
+          className="flex flex-col"
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+        >
           <motion.p
             variants={itemVariants}
             className="text-[10px] md:text-[11px] tracking-[4px] uppercase text-muted font-sans mb-4"
@@ -93,23 +72,72 @@ export default function Hero() {
               {t('cta_contact')}
             </a>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Right: stats grid — desktop only */}
-        <div className="hidden md:grid grid-cols-2 gap-3 self-center">
-          <StatBox value={t('stat_merchants_value')} label={t('stat_merchants_label')} delay={0.5} />
-          <StatBox value={t('stat_reviews_value')} label={t('stat_reviews_label')} delay={0.6} />
-          <StatBox value={t('stat_apps_value')} label={t('stat_apps_label')} delay={0.7} />
-          <StatBox value={t('stat_exp_value')} label={t('stat_exp_label')} delay={0.8} />
+        {/* Right: geometric decoration — desktop only */}
+        <div className="hidden md:flex items-center justify-center pointer-events-none select-none">
+          <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+            {/* Outer circle */}
+            <motion.div
+              className="absolute inset-0 rounded-full border border-border"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
+            />
+            {/* Middle circle */}
+            <motion.div
+              className="absolute rounded-full border border-border"
+              style={{ inset: '15%' }}
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.65, duration: 0.8, ease: 'easeOut' }}
+            />
+            {/* Inner rotating square */}
+            <motion.div
+              className="absolute border border-border-dark geo-spin"
+              style={{ inset: '38%' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.85, duration: 0.6 }}
+            />
+            {/* Cross lines */}
+            <motion.div
+              className="absolute top-1/2 left-0 right-0 h-px bg-border"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.9, duration: 0.6, ease: 'easeOut' }}
+            />
+            <motion.div
+              className="absolute left-1/2 top-0 bottom-0 w-px bg-border"
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ delay: 1.0, duration: 0.6, ease: 'easeOut' }}
+            />
+            {/* Corner dots */}
+            {[
+              'top-[15%] left-1/2 -translate-x-1/2',
+              'bottom-[15%] left-1/2 -translate-x-1/2',
+              'left-[15%] top-1/2 -translate-y-1/2',
+              'right-[15%] top-1/2 -translate-y-1/2',
+            ].map((pos, i) => (
+              <motion.div
+                key={i}
+                className={`absolute w-1 h-1 rounded-full bg-border-dark ${pos}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.1 + i * 0.05, duration: 0.3 }}
+              />
+            ))}
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Scroll hint */}
       <motion.div
         className="flex items-center gap-2 self-end"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.5 }}
+        transition={{ delay: 1.3, duration: 0.5 }}
       >
         <span className="text-[9px] tracking-[3px] uppercase text-muted font-sans">{t('scroll')}</span>
         <span className="text-muted text-sm">↓</span>
