@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 
 type Props = {
   children: React.ReactNode
-  params: Promise<{ locale: string }>
+  params: { locale: string }
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
-  const { locale } = await params
+  const { locale } = params
   if (!routing.locales.includes(locale as 'vi' | 'en')) notFound()
   const messages = await getMessages()
 
