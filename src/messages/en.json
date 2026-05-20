@@ -1,1 +1,56 @@
-{}
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Full-stack Developer · Shopify",
+    "tagline": "Building Shopify apps used by 5,500+ merchants.",
+    "cta_work": "View Work",
+    "cta_contact": "Contact",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "About",
+    "bio": "I'm Trưởng — a full-stack developer with nearly 2 years of experience across Shopify app development, internal tooling, and microservices-based systems. Currently building apps serving 5,500+ merchants at BSS Commerce with 1,550+ five-star reviews.",
+    "bio2": "Specialized in React, Remix, TypeScript, and Node.js with deep familiarity in the Shopify ecosystem. Growing toward a software architect role."
+  },
+  "skills": {
+    "title": "Skills",
+    "shopify": "Shopify",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database & DevOps"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present",
+    "bss_role": "Full-stack Developer",
+    "bss_desc1": "Develop and maintain 2 production Shopify apps serving 5,500+ merchants with 1,550+ five-star reviews.",
+    "bss_desc2": "Build end-to-end features: column width customization, translation import/export, live preview, conditional logic.",
+    "bss_desc3": "Technical support and custom integration for 50+ enterprise merchants.",
+    "vcc_role": "Front-end Intern",
+    "vcc_desc1": "Built UI features using Vue.js and PrimeVue in real production projects.",
+    "dra_role": "Full-stack Developer Intern",
+    "dra_desc1": "Built full-stack features with SvelteKit and Node.js microservices.",
+    "dra_desc2": "Integrated Apache Kafka for event-driven messaging between services."
+  },
+  "projects": {
+    "title": "Projects",
+    "merchants": "merchants",
+    "rating": "rating",
+    "live": "View live",
+    "optis_desc": "Advanced variant management system with unlimited options, custom fields, and conditional logic.",
+    "swatch_desc": "Variant visualization system using color swatches — fully overrides Shopify's default selectors."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's work together",
+    "email_label": "Email",
+    "github_label": "GitHub",
+    "cta": "Send Email"
+  }
+}

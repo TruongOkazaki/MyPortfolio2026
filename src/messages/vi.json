@@ -1,1 +1,56 @@
-{}
+{
+  "nav": {
+    "about": "Giới thiệu",
+    "skills": "Kỹ năng",
+    "experience": "Kinh nghiệm",
+    "projects": "Dự án",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "role": "Full-stack Developer · Shopify",
+    "tagline": "Xây dựng Shopify app phục vụ 5,500+ merchants.",
+    "cta_work": "Xem dự án",
+    "cta_contact": "Liên hệ",
+    "scroll": "Cuộn xuống"
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "bio": "Tôi là Trưởng — full-stack developer với gần 2 năm kinh nghiệm xây dựng Shopify app, internal tooling và hệ thống microservices. Hiện tại đang phát triển các app phục vụ hơn 5,500 merchant tại BSS Commerce với hơn 1,550 đánh giá 5 sao.",
+    "bio2": "Chuyên sâu về React, Remix, TypeScript và Node.js với kiến thức vững về hệ sinh thái Shopify. Hướng đến vai trò Software Architect trong tương lai."
+  },
+  "skills": {
+    "title": "Kỹ năng",
+    "shopify": "Shopify",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database & DevOps"
+  },
+  "experience": {
+    "title": "Kinh nghiệm",
+    "present": "Hiện tại",
+    "bss_role": "Full-stack Developer",
+    "bss_desc1": "Phát triển 2 Shopify app production phục vụ 5,500+ merchants với 1,550+ đánh giá 5 sao.",
+    "bss_desc2": "Xây dựng tính năng end-to-end: column width, translation import/export, live preview, conditional logic.",
+    "bss_desc3": "Hỗ trợ kỹ thuật và tích hợp tùy chỉnh cho 50+ enterprise merchants.",
+    "vcc_role": "Front-end Intern",
+    "vcc_desc1": "Xây dựng tính năng UI với Vue.js và PrimeVue trong dự án production thực tế.",
+    "dra_role": "Full-stack Developer Intern",
+    "dra_desc1": "Xây dựng tính năng full-stack với SvelteKit và Node.js microservices.",
+    "dra_desc2": "Tích hợp Apache Kafka cho event-driven messaging giữa các services."
+  },
+  "projects": {
+    "title": "Dự án",
+    "merchants": "merchants",
+    "rating": "đánh giá",
+    "live": "Xem live",
+    "optis_desc": "Hệ thống quản lý variant nâng cao với unlimited options, custom fields và conditional logic.",
+    "swatch_desc": "Hệ thống hiển thị variant bằng color swatches — ghi đè hoàn toàn selector mặc định của Shopify."
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "subtitle": "Hãy cùng làm việc",
+    "email_label": "Email",
+    "github_label": "GitHub",
+    "cta": "Gửi email"
+  }
+}
