@@ -34,6 +34,17 @@ export default function Contact() {
           </div>
           <div className="flex items-center gap-3">
             <span className="text-[9px] tracking-[3px] uppercase text-muted font-sans w-14">
+              {t('phone_label')}
+            </span>
+            <a
+              href={`tel:${contactInfo.phone}`}
+              className="text-sm font-sans text-ink-light hover:text-ink border-b border-transparent hover:border-ink transition-all pb-px"
+            >
+              {contactInfo.phone}
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-[9px] tracking-[3px] uppercase text-muted font-sans w-14">
               {t('github_label')}
             </span>
             <a

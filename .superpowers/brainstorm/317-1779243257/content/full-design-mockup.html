@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Design Mockup</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; font-family: Georgia, serif; color: #f5f2ed; padding: 24px; }
+
+  h1 { font-size: 18px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .meta { font-size: 11px; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+
+  .page-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Full width sections */
+  .section-full { grid-column: 1 / -1; }
+
+  .section-card {
+    background: #f5f2ed;
+    color: #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #aaa;
+    padding: 10px 16px 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* HERO */
+  .hero-mock {
+    padding: 28px 32px 24px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-mock::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(0,0,0,0.035) 31px, rgba(0,0,0,0.035) 32px);
+  }
+  .hero-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  .hero-logo { font-size: 11px; letter-spacing: 3px; color: #888; text-transform: uppercase; }
+  .hero-nav-links { display: flex; gap: 20px; }
+  .hero-nav-link { font-size: 10px; letter-spacing: 1px; color: #aaa; text-transform: uppercase; font-family: Arial, sans-serif; }
+  .hero-lang { font-size: 10px; color: #bbb; font-family: Arial, sans-serif; border: 1px solid #ddd; padding: 2px 8px; border-radius: 2px; }
+
+  .hero-content { position: relative; }
+  .hero-role { font-size: 10px; letter-spacing: 4px; color: #aaa; text-transform: uppercase; margin-bottom: 8px; font-family: Arial, sans-serif; }
+  .hero-name { font-size: 52px; font-weight: 700; color: #1a1a1a; line-height: 0.95; letter-spacing: -3px; }
+  .hero-name span { color: #888; }
+  .hero-underline { width: 40px; height: 2px; background: #1a1a1a; margin-top: 16px; }
+  .hero-desc { font-size: 11px; color: #666; margin-top: 12px; line-height: 1.5; font-family: Arial, sans-serif; max-width: 320px; }
+
+  .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; position: relative; }
+  .hero-cta { display: flex; gap: 8px; }
+  .btn-primary { background: #1a1a1a; color: #f5f2ed; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; font-family: Arial, sans-serif; }
+  .btn-secondary { border: 1px solid #ccc; color: #666; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; font-family: Arial, sans-serif; }
+  .hero-scroll { font-size: 9px; color: #ccc; letter-spacing: 2px; text-transform: uppercase; font-family: Arial, sans-serif; }
+
+  .hero-deco {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .deco-circle { width: 70px; height: 70px; border-radius: 50%; border: 1px solid #ddd; }
+  .deco-circle.sm { width: 35px; height: 35px; }
+  .deco-line { width: 1px; height: 30px; background: #ddd; }
+
+  /* ABOUT */
+  .about-mock {
+    padding: 20px 24px;
+    min-height: 150px;
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 16px;
+  }
+  .about-text-line { height: 8px; background: #e0ddd8; border-radius: 2px; margin-bottom: 6px; }
+  .about-geo { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+  .geo-square { width: 48px; height: 48px; border: 1px solid #ccc; transform: rotate(15deg); }
+  .geo-dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; }
+
+  /* SKILLS */
+  .skills-mock {
+    padding: 20px 24px;
+    min-height: 150px;
+  }
+  .skills-category { margin-bottom: 12px; }
+  .skills-cat-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 6px; font-family: Arial, sans-serif; }
+  .skills-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .skill-tag { font-size: 9px; color: #444; border: 1px solid #ccc; padding: 2px 8px; border-radius: 2px; font-family: Arial, sans-serif; }
+  .skill-tag.highlight { background: #1a1a1a; color: #f5f2ed; border-color: #1a1a1a; }
+
+  /* EXPERIENCE */
+  .exp-mock {
+    padding: 20px 24px;
+    min-height: 180px;
+  }
+  .exp-item { display: grid; grid-template-columns: 1px 1fr; gap: 12px; margin-bottom: 14px; }
+  .exp-line { width: 1px; background: #ddd; position: relative; }
+  .exp-dot { width: 5px; height: 5px; border-radius: 50%; background: #1a1a1a; position: absolute; left: -2px; top: 3px; }
+  .exp-company { font-size: 12px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; }
+  .exp-role { font-size: 9px; color: #888; font-family: Arial, sans-serif; margin-top: 1px; }
+  .exp-date { font-size: 8px; color: #bbb; font-family: Arial, sans-serif; letter-spacing: 1px; margin-top: 2px; }
+  .exp-desc { height: 6px; background: #e8e5e0; border-radius: 2px; margin-top: 5px; width: 90%; }
+
+  /* PROJECTS */
+  .projects-mock {
+    padding: 20px 24px;
+    min-height: 180px;
+  }
+  .project-item { border: 1px solid #e0ddd8; padding: 12px; border-radius: 2px; margin-bottom: 10px; }
+  .proj-name { font-size: 12px; font-weight: 700; color: #1a1a1a; }
+  .proj-tech { font-size: 8px; color: #aaa; font-family: Arial, sans-serif; letter-spacing: 1px; margin-top: 2px; }
+  .proj-bar { height: 5px; background: #e8e5e0; border-radius: 2px; margin-top: 6px; }
+  .proj-stat { font-size: 8px; color: #888; font-family: Arial, sans-serif; margin-top: 6px; }
+
+  /* CONTACT */
+  .contact-mock {
+    padding: 20px 24px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  .contact-line { display: flex; align-items: center; gap: 8px; }
+  .contact-icon { width: 16px; height: 16px; border: 1px solid #ccc; border-radius: 2px; }
+  .contact-text { font-size: 10px; color: #666; font-family: Arial, sans-serif; }
+
+  /* Section titles overlay */
+  .section-badge {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ccc;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Tech stack pill */
+  .tech-pill {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #f5f2ed;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 16px;
+  }
+
+  h2.main-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  p.desc { font-size: 12px; color: #aaa; font-family: Arial, sans-serif; margin-bottom: 20px; line-height: 1.5; }
+
+  .annotation {
+    font-size: 10px;
+    color: #666;
+    font-family: Arial, sans-serif;
+    padding: 6px 10px;
+    border-left: 2px solid #444;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <div style="max-width:900px;margin:0 auto;">
+    <h2 class="main-title">Portfolio Design — Full Page Preview</h2>
+    <p class="desc">Cream + Ink · Left-Aligned Editorial · VI/EN · Next.js + Framer Motion</p>
+
+    <div class="tech-pill">Tech: Next.js 14 · Tailwind CSS · Framer Motion · next-intl · TypeScript</div>
+
+    <div class="page-wrapper">
+
+      <!-- HERO -->
+      <div class="section-card section-full">
+        <div class="section-label">01 — Hero</div>
+        <div class="hero-mock">
+          <div class="hero-nav">
+            <div class="hero-logo">BQT</div>
+            <div class="hero-nav-links">
+              <span class="hero-nav-link">About</span>
+              <span class="hero-nav-link">Skills</span>
+              <span class="hero-nav-link">Work</span>
+              <span class="hero-nav-link">Contact</span>
+            </div>
+            <div class="hero-lang">VI / EN</div>
+          </div>
+
+          <div class="hero-content">
+            <div class="hero-role">Full-stack Developer · Shopify</div>
+            <div class="hero-name">Bùi<br>Quang<br><span>Trưởng</span></div>
+            <div class="hero-underline"></div>
+            <div class="hero-desc">Building Shopify apps used by 5,500+ merchants. React · Node.js · TypeScript.</div>
+          </div>
+
+          <div class="hero-bottom">
+            <div class="hero-cta">
+              <div class="btn-primary">View Work</div>
+              <div class="btn-secondary">Contact</div>
+            </div>
+            <div class="hero-scroll">↓ Scroll</div>
+          </div>
+
+          <!-- Decorative geometric -->
+          <div class="hero-deco">
+            <div class="deco-circle"></div>
+            <div class="deco-line"></div>
+            <div class="deco-circle sm"></div>
+          </div>
+        </div>
+        <div class="annotation">Animation: Tên stagger-reveal từ dưới lên khi load · Geometric circles float nhẹ · Horizontal rule draw vào từ trái · Scroll hint fade in sau 1.2s</div>
+      </div>
+
+      <!-- ABOUT + SKILLS -->
+      <div class="section-card">
+        <div class="section-label">02 — About</div>
+        <div class="about-mock">
+          <div>
+            <div class="about-text-line" style="width:100%;"></div>
+            <div class="about-text-line" style="width:85%;"></div>
+            <div class="about-text-line" style="width:92%;"></div>
+            <div class="about-text-line" style="width:70%;"></div>
+            <div style="margin-top:12px;">
+              <div class="about-text-line" style="width:100%;"></div>
+              <div class="about-text-line" style="width:60%;"></div>
+            </div>
+          </div>
+          <div class="about-geo">
+            <div class="geo-square"></div>
+            <div class="geo-dot"></div>
+            <div class="geo-dot" style="opacity:0.4;"></div>
+          </div>
+        </div>
+        <div class="section-badge">About</div>
+        <div class="annotation" style="margin:0 16px 12px;">Bio ngắn gọn · geometric shape làm điểm nhấn thay ảnh</div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-label">03 — Skills</div>
+        <div class="skills-mock">
+          <div class="skills-category">
+            <div class="skills-cat-label">Shopify</div>
+            <div class="skills-tags">
+              <span class="skill-tag highlight">Liquid</span>
+              <span class="skill-tag highlight">Polaris</span>
+              <span class="skill-tag">Admin GraphQL</span>
+              <span class="skill-tag">App Bridge</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-cat-label">Frontend</div>
+            <div class="skills-tags">
+              <span class="skill-tag highlight">React</span>
+              <span class="skill-tag highlight">TypeScript</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Remix</span>
+              <span class="skill-tag">Tailwind</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-cat-label">Backend</div>
+            <div class="skills-tags">
+              <span class="skill-tag highlight">Node.js</span>
+              <span class="skill-tag">NestJS</span>
+              <span class="skill-tag">Koa.js</span>
+              <span class="skill-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="section-badge">Skills</div>
+        <div class="annotation" style="margin:0 16px 12px;">Tags fade in theo nhóm · highlight = core skills</div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section-card section-full">
+        <div class="section-label">04 — Experience</div>
+        <div class="exp-mock" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
+          <div>
+            <div class="exp-company">BSS Group</div>
+            <div class="exp-role">Full-stack Developer</div>
+            <div class="exp-date">03/2025 – Present</div>
+            <div class="exp-desc"></div>
+            <div class="exp-desc" style="width:70%;margin-top:4px;"></div>
+          </div>
+          <div>
+            <div class="exp-company">VCCorp</div>
+            <div class="exp-role">Front-end Intern</div>
+            <div class="exp-date">10/2024 – 02/2025</div>
+            <div class="exp-desc"></div>
+          </div>
+          <div>
+            <div class="exp-company">Draphony</div>
+            <div class="exp-role">Full-stack Intern</div>
+            <div class="exp-date">07/2024 – 09/2024</div>
+            <div class="exp-desc"></div>
+          </div>
+        </div>
+        <div class="annotation" style="margin:0 16px 12px;">Timeline horizontal · expand on click để xem bullet points · slide in từ trái khi scroll vào viewport</div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section-card section-full">
+        <div class="section-label">05 — Projects</div>
+        <div class="projects-mock" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="project-item">
+            <div class="proj-name">OPTIS Product Options</div>
+            <div class="proj-tech">React.js · Node.js · Koa.js · GraphQL · MySQL</div>
+            <div class="proj-bar"></div>
+            <div class="proj-stat">5,000+ merchants · Shopify App</div>
+          </div>
+          <div class="project-item">
+            <div class="proj-name">OP Color Swatch</div>
+            <div class="proj-tech">Remix · Lit · TypeScript · NestJS · TypeORM</div>
+            <div class="proj-bar"></div>
+            <div class="proj-stat">500+ merchants · 5.0 rating</div>
+          </div>
+        </div>
+        <div class="annotation" style="margin:0 16px 12px;">Cards hover → lift + border darken · Live link button · Tech tags dạng pill</div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="section-card section-full">
+        <div class="section-label">06 — Contact</div>
+        <div class="contact-mock" style="flex-direction:row;justify-content:space-between;align-items:center;padding:24px 32px;">
+          <div>
+            <div style="font-size:22px;font-weight:700;color:#1a1a1a;letter-spacing:-1px;">Liên hệ</div>
+            <div style="font-size:10px;color:#aaa;font-family:Arial,sans-serif;margin-top:4px;letter-spacing:1px;">LET'S WORK TOGETHER</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div class="contact-line"><div class="contact-icon"></div><span class="contact-text">buiquangtruong1105@gmail.com</span></div>
+            <div class="contact-line"><div class="contact-icon"></div><span class="contact-text">github.com/OkazakiTruong</span></div>
+          </div>
+          <div class="btn-primary" style="padding:10px 20px;font-size:10px;">Send Email</div>
+        </div>
+        <div class="annotation">Section cuối · Tên section lớn bên trái · Links giữa · CTA phải</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:24px;padding:16px;border:1px solid #333;border-radius:4px;">
+      <div style="font-size:12px;font-weight:700;margin-bottom:8px;">Animation Plan</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="annotation">Page load: tên stagger từ dưới lên, opacity 0→1</div>
+        <div class="annotation">Scroll: sections fade + slide vào khi vào viewport</div>
+        <div class="annotation">Hover: cards lift 4px, links underline draw</div>
+        <div class="annotation">Lang toggle: cross-fade smooth VI↔EN</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

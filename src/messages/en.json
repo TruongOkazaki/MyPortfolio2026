@@ -58,7 +58,14 @@
     "title": "Contact",
     "subtitle": "Let's work together",
     "email_label": "Email",
+    "phone_label": "Phone",
     "github_label": "GitHub",
     "cta": "Send Email"
+  },
+  "not_found": {
+    "code": "404",
+    "title": "Page not found",
+    "desc": "The page you're looking for has been removed or doesn't exist.",
+    "cta": "Back to home"
   }
 }

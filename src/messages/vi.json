@@ -58,7 +58,14 @@
     "title": "Liên hệ",
     "subtitle": "Hãy cùng làm việc",
     "email_label": "Email",
+    "phone_label": "Điện thoại",
     "github_label": "GitHub",
     "cta": "Gửi email"
+  },
+  "not_found": {
+    "code": "404",
+    "title": "Trang không tồn tại",
+    "desc": "Trang bạn tìm kiếm đã bị xóa hoặc không tồn tại.",
+    "cta": "Về trang chủ"
   }
 }

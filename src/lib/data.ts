@@ -126,6 +126,7 @@ export const projects: Project[] = [
 
 export const contactInfo = {
   email: 'buiquangtruong1105@gmail.com',
+  phone: '0961815355',
   github: 'github.com/OkazakiTruong',
   githubUrl: 'https://github.com/OkazakiTruong',
 }
